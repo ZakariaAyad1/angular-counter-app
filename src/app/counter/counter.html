@@ -3,19 +3,43 @@
 <div class="counter-container">
   <h1>Counter</h1>
 
+  <!-- Display Limits -->
+  <div class="limits-display">
+    Min: <span class="limit-value">{{ minLimit }}</span> |
+    Max: <span class="limit-value">{{ maxLimit }}</span>
+  </div>
+
+
+  <!-- Step Input Field -->
+  <div class="step-control">
+    <label for="stepInput">Step Value:</label>
+    <!-- Two-way data binding with [(ngModel)] -->
+    <!-- (input) event is an alternative to [(ngModel)] if you want more control,
+         but for simple inputs, ngModel is often preferred.
+         Here, we'll use (input) to demonstrate direct event handling. -->
+    <input
+      type="number"
+      id="stepInput"
+      [value]="step"
+      (input)="onStepChange($event)"
+      min="1"
+      class="step-input"
+    />
+  </div>
+
   <div class="count-display">{{ count }}</div>
 
   <div class="buttons-container">
 
-    <button class="button decrement-btn" (click)="decrement()">
+    <button class="button decrement-btn" (click)="decrement()" [disabled]="count - step < minLimit" >
       Decrement
     </button>
 
-    <button class="button reset-btn" (click)="reset()">
+    <button class="button reset-btn" (click)="reset()" [disabled]="count === 0" >
       Reset
     </button>
 
-    <button class="button increment-btn" (click)="increment()">
+    <button class="button increment-btn" (click)="increment()" [disabled]="count + step > maxLimit">
       Increment
     </button>
 
