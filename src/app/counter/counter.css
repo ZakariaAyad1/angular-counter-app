@@ -1,0 +1,110 @@
+.counter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh; /* Takes most of the viewport height */
+  font-family: Arial, sans-serif;
+  background-color: #f4f7f6;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  margin: 40px auto; /* Center the container */
+  color: #333;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #2c3e50;
+  margin-bottom: 25px;
+}
+
+.count-display {
+  font-size: 5em; /* Large number for count */
+  font-weight: bold;
+  color: #3498db; /* Blue color for the number */
+  margin-bottom: 30px;
+  padding: 20px 30px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  min-width: 150px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.buttons-container {
+  display: flex;
+  gap: 15px; /* Space between buttons */
+  flex-wrap: wrap; /* Allows buttons to wrap on smaller screens */
+  justify-content: center;
+}
+
+.button {
+  padding: 12px 25px;
+  font-size: 1.1em;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+  min-width: 120px;
+  flex: 1; /* Allow buttons to grow and shrink */
+}
+
+.button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.button:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.increment-btn {
+  background-color: #2ecc71; /* Green */
+  color: white;
+}
+
+.increment-btn:hover {
+  background-color: #27ae60;
+}
+
+.decrement-btn {
+  background-color: #e74c3c; /* Red */
+  color: white;
+}
+
+.decrement-btn:hover {
+  background-color: #c0392b;
+}
+
+.reset-btn {
+  background-color: #95a5a6; /* Gray */
+  color: white;
+}
+
+.reset-btn:hover {
+  background-color: #7f8c8d;
+}
+
+/* Basic responsiveness for smaller screens */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2em;
+  }
+  .count-display {
+    font-size: 4em;
+    padding: 15px 25px;
+  }
+  .buttons-container {
+    flex-direction: column; /* Stack buttons vertically */
+    width: 100%;
+    max-width: 200px; /* Limit button width */
+  }
+  .button {
+    font-size: 1em;
+    padding: 10px 20px;
+  }
+}
